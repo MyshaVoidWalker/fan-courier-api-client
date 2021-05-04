@@ -6,6 +6,7 @@
  * another great project.
  * You can find more information about us on https://infifnisoftware.ro and write us
  * an email on contact@infifnisoftware.ro.
+ * Forked by Mysha VoidWalker with extra options for price generation.
  */
 
 namespace Infifni\FanCourierApiClient\Request;
@@ -77,12 +78,19 @@ class Price extends Endpoint
      */
     private function getInternalServiceFieldRules(): array
     {
+
         return [
             'localitate_dest' => [ // the name of the destination locality (from FAN database)
                 'required' => true
             ],
             'judet_dest' => [ // the name of the destination county (from FAN database)
                 'required' => true
+            ],
+            'localitate_exp' => [ // the name of the expeditor locality (from FAN database)
+                'required' => false
+            ],
+            'judet_exp' => [ // the name of the expeditor county (from FAN database)
+                'required' => false
             ],
             'plicuri' => [ // the number of envelopes
                 'required' => true
